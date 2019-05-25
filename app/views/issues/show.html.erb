@@ -1,0 +1,33 @@
+<div class="issue-heading">
+  <div class="container">
+    <%= @issue.title %>
+    <% if current_user && current_user == @issue.user %>
+      <%= link_to 'Destroy', issue_path(@issue), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+      <%= link_to 'edit', edit_issue_path(@issue), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="replies">
+    <article class="reply clearfix">
+      <div class="avatar">
+        <img src="http://english.ihep.cas.cn/appendix/pic/20180619/201806191013254923.png?s=512&amp;d=retr" alt="" class="image-circle">
+      </div>
+      <div class="body">
+        <div class="heading">
+          <h5 class="name"><a href="#">happypeter</a></h5>
+        </div>
+        <%= @issue.content %>
+      </div>
+    </article>
+    <% @comments.each do |c| %>
+      <%= render partial: 'shared/comment', locals: {c: c} %>
+    <% end %>
+
+  </div>
+  <% if current_user %>
+    <%= render partial: 'shared/comment_box', locals: {issue: @issue} %>
+  <% else %>
+    <%= link_to "登陆发评论", login_path %>
+  <% end %>
+</div>

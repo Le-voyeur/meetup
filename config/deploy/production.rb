@@ -40,22 +40,26 @@
 # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
 #
 # Global options
+server 'nju-hep.org', user: 'webadmin', roles: %w{app db web}, my_property: :my_value
 # --------------
+
+
 #  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
+## user: fetch(:user), 
+#keys: %w(/home/webadmin/.ssh/id_rsa),
+#    forward_agent: true,
+#    auth_methods: %w(ze795326)
 #  }
-#
-# The server-based syntax can be used to override options:
-# ------------------------------------
-# server "example.com",
-#   user: "user_name",
-#   roles: %w{web app},
+##
+## The server-based syntax can be used to override options:
+## ------------------------------------
+# server "108.61.160.138",
+#   user: "webadmin",
+#   roles: %w{web app}
 #   ssh_options: {
 #     user: "user_name", # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
+#     keys: %w(/home/webadmin/.ssh/id_rsa),
+#     forward_agent: true,
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }

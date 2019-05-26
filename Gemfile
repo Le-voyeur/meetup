@@ -36,8 +36,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development do
    gem "thin"
 end
-#gem 'capistrano-rails', :group => :development
-#gem 'capistrano-passenger', :group => :development
+gem 'capistrano-rails', :group => :development
+gem 'capistrano-passenger', :group => :development
 
 
 # Use unicorn as the app server
